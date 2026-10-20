@@ -1,0 +1,149 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUST Online Application Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Semantic Header -->
+    <header class="site-header">
+        <figure class="logo-container">
+            <img src="assets/images/must-badge.png" alt="Mbarara University Logo" class="logo">
+        </figure>
+        <h1>MBARARA UNIVERSITY OF SCIENCE AND TECHNOLOGY</h1>
+        <p class="badge">Online Application Portal</p>
+    </header>
+
+    <!-- Semantic Main Content -->
+    <main>
+        <!-- Semantic Article for the Login Form -->
+        <article class="card login-card">
+            <header>
+                <h2>Welcome Back</h2>
+                <p class="subtitle">Log in to access your application dashboard.</p>
+            </header>
+
+            <form action="#" method="POST">
+                <!-- Using Fieldset for Grouping -->
+                <fieldset>
+                    <legend class="sr-only">Login Credentials</legend>
+                    
+                    <label for="login-email">Email Address</label>
+                    <p class="input-wrapper">
+                        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                        <input type="email" id="login-email" name="email" placeholder="name@example.com" required autocomplete="email">
+                    </p>
+
+                    <label for="login-password">Password</label>
+                    <p class="input-wrapper">
+                        <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                        <input type="password" id="login-password" name="password" placeholder="Enter your password" required autocomplete="current-password">
+                        <i class="fa-regular fa-eye toggle-password" aria-label="Show password"></i>
+                    </p>
+                </fieldset>
+
+                <button type="submit" class="btn-primary">
+                    <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> Sign In
+                </button>
+            </form>
+
+            <a href="#" class="forgot-password"><i class="fa-solid fa-key" aria-hidden="true"></i> Forgot your password?</a>
+
+            <footer class="card-footer">
+                <p class="divider"><span>New to the portal?</span></p>
+                <nav class="button-group">
+                    <!-- Command to open the dialog -->
+                    <button class="btn-outline" id="openModalBtn" commandfor="accountModal" command="show-modal">
+                        <i class="fa-solid fa-user-plus" aria-hidden="true"></i> Create Account
+                    </button>
+                    <button class="btn-outline"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> How to Apply</button>
+                </nav>
+            </footer>
+        </article>
+    </main>
+
+    <!-- Semantic Native Dialog Element (Replaces the div overlay) -->
+    <dialog id="accountModal" class="modal-dialog">
+        <article class="modal-content">
+            <header class="modal-header">
+                <h2>Create Account</h2>
+                <!-- Form method="dialog" automatically closes the dialog -->
+                <form method="dialog">
+                    <button class="close-btn" aria-label="Close dialog">&times;</button>
+                </form>
+            </header>
+            <p class="subtitle">Provide your details to receive a temporary password.</p>
+
+            <form action="#" method="POST">
+                <fieldset>
+                    <legend class="sr-only">Account Details</legend>
+
+                    <label for="surname">Surname</label>
+                    <p class="input-wrapper">
+                        <i class="fa-regular fa-user" aria-hidden="true"></i>
+                        <input type="text" id="surname" name="surname" placeholder="Surname" required>
+                    </p>
+
+                    <label for="other-names">Other Names</label>
+                    <p class="input-wrapper">
+                        <i class="fa-regular fa-user" aria-hidden="true"></i>
+                        <input type="text" id="other-names" name="other_names" placeholder="Other names" required>
+                    </p>
+
+                    <label for="phone">Phone Number</label>
+                    <p class="input-wrapper phone-wrapper">
+                        <select aria-label="Country Code">
+                            <option>Uganda (+256)</option>
+                        </select>
+                        <input type="tel" id="phone" name="phone" placeholder="0770000000" required>
+                    </p>
+                    <small class="hint">Use an active phone number to receive notifications.</small>
+
+                    <label for="reg-email">Email Address</label>
+                    <p class="input-wrapper">
+                        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                        <input type="email" id="reg-email" name="email" placeholder="myemail@gmail.com" required>
+                    </p>
+                    <small class="hint link-hint"><a href="#">Don't have an Email? Click to create <i class="fa-regular fa-circle-question"></i></a></small>
+                </fieldset>
+
+                <footer class="modal-footer">
+                    <!-- Closes the dialog without submitting the form -->
+                    <button type="button" class="btn-outline" onclick="document.getElementById('accountModal').close()">Close</button>
+                    <button type="submit" class="btn-primary"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Create Account</button>
+                </footer>
+            </form>
+        </article>
+    </dialog>
+
+    <!-- JavaScript for backwards compatibility / extra modal control -->
+    <script>
+        const modal = document.getElementById('accountModal');
+        
+        // Fallback for browsers that don't support commandfor/command attributes
+        document.getElementById('openModalBtn').addEventListener('click', (e) => {
+            if (!modal.open) {
+                e.preventDefault();
+                modal.showModal();
+            }
+        });
+
+        // Close when clicking outside the modal box
+        modal.addEventListener('click', (e) => {
+            const dialogDimensions = modal.getBoundingClientRect();
+            if (
+                e.clientX < dialogDimensions.left ||
+                e.clientX > dialogDimensions.right ||
+                e.clientY < dialogDimensions.top ||
+                e.clientY > dialogDimensions.bottom
+            ) {
+                modal.close();
+            }
+        });
+    </script>
+</body>
+</html>

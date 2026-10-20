@@ -1,0 +1,291 @@
+ /* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f3f4f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 50px;
+}
+
+/* Utility class for Screen Readers (Accessibility) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* --- Semantic Header --- */
+.site-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-container {
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.site-header h1 {
+    color: #1e3a8a;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.badge {
+    background-color: #e0e7ff;
+    color: #4338ca;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* --- Semantic Main Article --- */
+.card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 50px;
+}
+
+.card header h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* --- Form and Fieldset Styling --- */
+fieldset {
+    border: none; /* Remove default border */
+    margin-bottom: 15px;
+}
+
+fieldset label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 0 10px;
+    background-color: #f9fafb;
+    transition: border-color 0.3s;
+    margin-bottom: 20px; /* Added margin to replace div spacing */
+}
+
+.input-wrapper:focus-within {
+    border-color: #4f46e5;
+    background-color: #fff;
+}
+
+.input-wrapper i {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.input-wrapper input, .input-wrapper select {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 12px 10px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.toggle-password {
+    cursor: pointer;
+}
+
+/* Phone specific styling */
+.phone-wrapper {
+    padding: 0;
+}
+.phone-wrapper select {
+    width: 40%;
+    border-right: 1px solid #d1d5db;
+    border-radius: 8px 0 0 8px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+/* --- Buttons --- */
+.btn-primary {
+    width: 100%;
+    background-color: #312e81;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #4338ca;
+}
+
+.forgot-password {
+    display: block;
+    text-align: left;
+    font-size: 13px;
+    color: #555;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.forgot-password:hover {
+    color: #312e81;
+}
+
+.card-footer .divider {
+    text-align: center;
+    border-top: 1px solid #e5e7eb;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.card-footer .divider span {
+    background: #fff;
+    padding: 0 10px;
+    position: relative;
+    top: -10px;
+    font-size: 12px;
+    color: #888;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-outline {
+    flex: 1;
+    background-color: transparent;
+    border: 1px solid #d1d5db;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #312e81;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    background-color: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+/* --- Native HTML Dialog Styling --- */
+.modal-dialog {
+    margin: auto;
+    border: none;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 20px 25px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 450px;
+    padding: 0; /* Let the inner article handle padding */
+}
+
+.modal-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Replaces the div overlay */
+    backdrop-filter: blur(2px);
+}
+
+.modal-content {
+    padding: 25px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.hint {
+    display: block;
+    font-size: 11px;
+    color: #888;
+    margin-top: -15px; /* Adjust spacing since inputs have margin-bottom */
+    margin-bottom: 15px;
+}
+
+.link-hint a {
+    color: #312e81;
+    text-decoration: none;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.modal-footer .btn-outline {
+    width: auto;
+    padding: 10px 20px;
+}
+
+.modal-footer .btn-primary {
+    width: auto;
+    padding: 10px 20px;
+    margin-bottom: 0;
+}
